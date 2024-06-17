@@ -83,13 +83,6 @@ var qa8 = document.getElementById('qa8');
     an8.classList.toggle('open')
     });
 
-var qa9 = document.getElementById('qa9');
-    var an9 = document.getElementById('an9');
-    qa9.addEventListener('click', function(){
-    this.classList.toggle('open')
-    an9.classList.toggle('open')
-    });
-
 var qa10 = document.getElementById('qa10');
     var an10 = document.getElementById('an10');
     qa10.addEventListener('click', function(){
