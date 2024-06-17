@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* デフォルト */
+@font-face {
+  font-family: "YuGothic";
+  src: url(../../font/YuGothM.ttc);
+}
+@font-face {
+  font-family: "YuGothicB";
+  src: url(../../font/YuGothB.ttc);
+}
+/* レスポンシブ設定 */
+@media screen and (min-width: 541px) {
+  .sp {
+    display: none;
+  }
+}
+@media screen and (max-width: 540px) {
+  .pc {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  .tb {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nb {
+    display: none;
+  }
+}
+/* リセットCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  padding: 80px;
+  background: #005EB1;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  font-family: "YuGothicB";
+}
+@media screen and (max-width:540px) {
+  h1 {
+    padding: 35px;
+    font-size: 22px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table tr {
+  font-size: 18px;
+  border: 2px solid #D9D9D9;
+}
+@media screen and (max-width:768px) {
+  table tr {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    border: none;
+  }
+}
+table tr th {
+  width: 250px;
+  background: #F0F0F0;
+  padding: 25px 30px;
+  border: 2px solid #D9D9D9;
+}
+@media screen and (max-width:768px) {
+  table tr th {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-top: 2px solid #D9D9D9;
+    border-left: 2px solid #D9D9D9;
+    border-right: 2px solid #D9D9D9;
+  }
+}
+table tr td {
+  background: white;
+  padding: 25px 30px;
+  border: 2px solid #D9D9D9;
+}
+@media screen and (max-width:768px) {
+  table tr td {
+    width: 100%;
+    padding: 15px;
+    padding-right: 20px;
+    border: none;
+    border-top: 2px solid #D9D9D9;
+    border-left: 2px solid #D9D9D9;
+    border-right: 2px solid #D9D9D9;
+  }
+}
+@media screen and (max-width:768px) {
+  table tr td.last {
+    border-bottom: 2px solid #D9D9D9;
+  }
+}/*# sourceMappingURL=style.css.map */

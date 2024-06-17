@@ -1,0 +1,278 @@
+@charset "utf-8";
+
+/* デフォルト */
+@font-face {
+	font-family: 'YuGothic';
+	src: url(../../font/YuGothM.ttc);
+}
+
+@font-face {
+	font-family: 'YuGothicB';
+	src: url(../../font/YuGothB.ttc);
+}
+
+/* レスポンシブ設定 */
+
+$breakpoints: (
+    "ssp" : "screen and (max-width:320px)",
+    "sp" : "screen and (max-width:540px)",
+    "tb" : "screen and (max-width:768px)",
+    "mb" : "screen and (max-width:900px)",
+    "nb" : "screen and (max-width:1024px)",
+) !default;
+
+@mixin pc($breakpoint :nb){
+  @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+  }
+}
+
+@media screen and (min-width:541px){
+  .sp{display:none;}
+}
+@media screen and (max-width:540px){
+  .pc{display:none;}
+}
+
+@media screen and (min-width:769px){
+  .tb{display:none;}
+}
+@media screen and (max-width:768px){
+  .nb{display:none;}
+}
+
+/* リセットCSS */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+
+
+//各セクション
+.three-step{
+  img{
+    &.circle{
+      width: 566px;
+      margin: 0 auto 40px;
+      @include pc(sp){
+        width: 300px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .flex{
+    gap: 30px;
+    margin-top: 50px;
+    @include pc(tb){
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .box{
+      width: 300px;
+      .text{
+        height: 223px;
+        padding: 25px 25px 0;
+        background: #FDFBE0;
+        border-radius: 0px 0px 7px 7px;
+        @include pc(sp){
+          padding: 25px;
+          height: auto;
+        }    
+        h3{
+          font-size: 20px;
+          margin-bottom: 10px;
+          text-align: justify;
+          font-family: 'YuGothicB';
+          color: #AD8500;
+          @include pc(sp){
+            font-size: 16px;
+          }
+        }
+        &.pink{
+          background: #FFF2F2;
+          h3{
+            color: #8B142E;
+          }
+        }
+        &.green{
+          background: #EFF8F0;
+          h3{
+            color: #135F15;
+          }
+        }
+      }
+    }
+  }
+}
+
+.adviser{
+  img{
+    width: 500px;
+    margin: 0 auto 35px;
+    @include pc(sp){
+      width: 300px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.skedule{
+  .flex{
+    margin-bottom: 50px;
+    gap: 30px;
+    @include pc(tb){
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom:35px;
+    }
+    .text{
+      width: 300px;
+      background: url(../../img/skedule01.png);
+      background-size: cover;
+      background-position: center;
+      padding: 80px 0;
+      @include pc(sp){
+        width: 260px;
+        margin: 0 auto;
+        padding: 70px 0;
+      }
+      &.two{
+        background: url(../../img/skedule02.png);
+        background-size: cover;
+        background-position: center;  
+      }
+      &.three{
+        background: url(../../img/skedule03.png);
+        background-size: cover;
+        background-position: center;  
+      }
+      p{
+        font-size: 20px;
+        text-align: center;
+        font-family: 'YuGothicB';
+        color: white;
+        @include pc(sp){
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.daily{
+  img{
+    margin-bottom: 25px;
+  }
+  p{
+    &.ano{
+      text-align: right;
+      font-size: 16px;
+      margin-bottom: 50px;
+      @include pc(sp){
+        font-size: 13px;
+        margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+.feedback{
+  img{
+    width: 600px;
+    margin: 0 auto 50px;
+    @include pc(sp){
+      width: 300px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+.chat{
+  img{
+    width: 300px;
+    margin: 0 auto 50px;
+    @include pc(sp){
+      width: 220px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+.mendan{
+  img{
+    width: 500px;
+    margin: 0 auto 35px;
+    @include pc(sp){
+      width: 300px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.example{
+  .sp{
+    width: 100%;
+    .line-swiper{
+      padding: 0px;
+      position: relative;
+      .swiper {
+        width: 100%;
+        .swiper-slide {
+          text-align: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: block;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          img{
+            width: 326px;
+            margin: 0 auto;
+            @include pc(ssp){
+              width: 100%;
+            }
+          }
+          &.swiper-slide-next{
+            img{
+              transform: scale(1);
+            }
+          }
+          &-active{
+            margin-right: 0px;
+          }
+        }
+      }
+      .swiper-button-next{
+          right: -5px;
+        &::after{
+          content:'';
+          width: 11px;
+          height: 11px;
+          border-top: 3px solid #003986;
+          border-right: 3px solid #003986;
+          transform: rotate(45deg);
+        }
+      }
+      .swiper-button-prev{
+          left: -5px;
+        &::after{
+          content:'';
+          width: 11px;
+          height: 11px;
+          border-top: 3px solid #003986;
+          border-left: 3px solid #003986;
+          transform: rotate(-45deg);
+        }
+      }
+  } 
+  }
+}

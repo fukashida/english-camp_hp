@@ -1,0 +1,2342 @@
+/* デフォルト */
+/* normal */
+@font-face {
+    font-family: "遊ゴシック";
+    src: url(../font/NotoSansJP-Medium.otf) format("opentype");
+  }
+  /* bold */
+  @font-face {
+    font-family: "遊ゴシックbold";
+    src: url(../font/NotoSansJP-Bold.otf) format("opentype");
+    font-weight: bold; /* boldが使えるようになる */
+  }
+  /* Regular */
+  @font-face {
+    font-family: "遊ゴシックRegular";
+    src: url(../font/NotoSansJP-Regular.otf) format("opentype");
+    font-weight: 600; /* boldが使えるようになる */
+  }
+  
+  .bold {
+    font-family: "遊ゴシックbold";
+  }
+
+  .regular {
+    font-family: "遊ゴシックRegular";
+  }
+
+  /* レスポンシブ設定 */
+
+$breakpoints: (
+    "ssp" : "screen and (max-width:320px)",
+    "sp" : "screen and (max-width:540px)",
+    "tb" : "screen and (max-width:768px)",
+    "mb" : "screen and (max-width:900px)",
+    "nb" : "screen and (max-width:1024px)",
+) !default;
+
+@mixin pc($breakpoint :nb){
+  @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+  }
+}
+
+@media screen and (min-width:321px){
+  .ssp{display:none;}
+}
+@media screen and (min-width:541px){
+  .sp{display:none;}
+}
+@media screen and (max-width:540px){
+  .pc{display:none;}
+}
+
+@media screen and (min-width:769px){
+  .tb{display:none;}
+}
+@media screen and (max-width:768px){
+  .nb{display:none;}
+}
+
+/* リセットCSS */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  /* デフォルトのフォントと文字カラー設定 */
+  font-family: "遊ゴシック", sans-serif;
+  color:#333333;
+}
+
+.center {
+    text-align: center;
+}
+
+p{
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  @include pc(sp){
+    font-size:16px;
+  }
+  @include pc(ssp){
+    font-size:15px;
+  }
+}
+
+ul li{
+  list-style: none;
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+    margin-left: 20px;
+    line-height: 27px;
+    margin-bottom: 3px;
+    &:last-child {
+        margin-bottom: 0;
+      }
+      @include pc(sp){
+        line-height: 24px;
+      }
+      @include pc(ssp){
+        font-size: 15px;
+      }
+}
+
+/* 見出しデフォルト */
+
+h2{
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 60px;
+  @include pc(sp){
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  @include pc(ssp){
+    font-size: 19px;
+    margin-bottom: 25px;
+  }
+}
+
+h3{
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.3;
+  @include pc(sp){
+    font-size:20px;
+  }
+}
+
+.up {
+  margin-top: 27px;
+  @include pc(sp){
+    margin-top: 24px;
+  }
+}
+
+/* セクションデフォルト */
+
+section{
+  padding: 80px 0;
+  @include pc(sp){
+    padding: 60px 0px;
+  }
+}
+
+
+/* コンテイナーデフォルト */
+
+.container{
+  max-width:960px;
+  margin:auto;
+  width: 100%;
+  @include pc(nb){
+    width:85%;
+  }
+  @include pc(sp){
+    width:345px;
+  }
+  @include pc(ssp){
+    width:300px;
+  }
+}
+
+.sub-container{
+  max-width: 770px;
+  margin: auto;
+  width: 100%;
+  @include pc(nb){
+    width: 80%;
+  }
+  @include pc(sp){
+    width:345px;
+  }
+  @include pc(ssp){
+    width:300px;
+  }
+}
+
+
+/* 画像デフォルト */
+
+img {
+  width:100%;
+  display: block;
+}
+
+.base-img{
+  max-width: 500px;
+  margin: 35px auto;
+  @include pc(sp){
+    max-width: 260px;
+    margin: 25px auto;
+  }
+}
+
+
+/* aタグデフォルト */
+
+a{
+  display: block;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;/* aタグの文字サイズ */
+  line-height: 1.2;/* aタグの行間 */
+  text-align: center;
+  @include pc(sp){
+    font-size: 18px;
+  }
+}
+
+/* フッターデフォルト */
+
+footer{
+  background-color: #000;
+  color: #fff;
+  padding: 14px 0;
+  p{
+    text-align: center;
+    font-size: 14px;
+  }
+  & .flex-item {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  & .footer-flex{
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+    @include pc(sp){
+        display: block;
+    }
+    }
+    a{
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      @include pc(tb){
+        font-size: 13px;
+        line-height: 20px;
+      }
+      @include pc(sp){
+        font-size: 12px;
+      }
+    }
+  }
+
+//   フレックス
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex02 {
+    display: flex;
+    align-items: center;
+}
+
+//   ボタン
+.button{
+    position: relative;
+    background-color: #E607AA;
+    border: none;
+    border-radius: 100px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 22px;
+    @include pc(sp){
+      width: 328px;
+    }
+    @include pc(ssp){
+      width: 300px;
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 40px;
+        width: 13px;    
+        height: 13px;   
+        border-top: 3px solid #ffffff;    
+        border-right: 3px solid #ffffff;   
+        transform: rotate(45deg);  
+        @include pc(sp){
+          width: 8px;    
+          height: 8px; 
+          right: 30px;  
+        } 
+    }
+    & a {
+      font-size: 26px;
+      @include pc(sp){
+        font-size: 18px;
+      }
+    }
+}
+
+.cta-copy{
+    color: #00244D;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 20px;
+    @include pc(sp){
+      margin-bottom: 10px;
+    }
+    &::before{
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 30px;
+      border-left: 3px solid #00244D;
+      top: 50%;
+      left: 36%;
+      transform: rotate(-25deg) translateY(-50%);
+      @include pc(sp){
+        left: 22%;
+      }
+    }
+    &::after{
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 30px;
+      border-left: 3px solid #00244D;
+      top: 50%;
+      right: 36%;
+      transform: rotate(25deg) translateY(-50%);
+      @include pc(sp){
+        right: 22%;
+      }
+    }
+}
+
+// 吹き出し
+.ballon01 {
+    display: flex;
+    align-items: center;
+    gap:30px;
+    @include pc(sp){
+      align-items: flex-start;
+      gap:13px;
+    }
+    & .ballon-item {
+      font-family: "遊ゴシックRegular";
+        position: relative;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        @include pc(sp){
+          width: 260px;
+          padding: 20px;
+        }
+        @include pc(ssp){
+          width: auto;
+          padding: 20px 15px;
+          font-size: 14px;
+        }
+        &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            top:50px;
+            left: -20px;
+            border-style: solid;
+            border-width: 10px 24px 10px 0;
+            border-color: transparent #ffffff transparent transparent;
+            @include pc(sp){
+              border-width: 5.5px 12px 5.5px 0;
+              border-color: transparent #ffffff transparent transparent;
+              top:30px;
+              left: -10px;
+            }
+        }
+    }
+    & img {
+        width: 120px;
+        height: 120px;
+        @include pc(sp){
+          width: 70px;
+          height: 70px;
+        }
+    }
+}
+
+.ballon02 {
+    display: flex;
+    align-items: center;
+    gap:30px;
+    margin: 40px 0;
+    @include pc(sp){
+      margin: 30px 0;
+      align-items: flex-start;
+      gap:13px;
+    }
+    & .ballon-item {
+      font-family: "遊ゴシックRegular";
+        position: relative;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        margin-left: auto;
+        @include pc(sp){
+          width: 260px;
+          padding: 20px;
+        }
+        @include pc(ssp){
+          width: auto;
+          padding: 20px 15px;
+          font-size: 14px;
+        }
+        &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            top:30px;
+            right: -20px;
+            border-style: solid;
+            border-width: 10px 0 10px 24px;
+            border-color: transparent transparent transparent #fff;
+            @include pc(sp){
+              border-width: 5.5px 0 5.5px 12px;
+              border-color: transparent transparent transparent #ffffff;
+              top:30px;
+              right: -10px;
+            }
+        }
+    }
+    & img {
+        width: 120px;
+        height: 120px;
+        @include pc(sp){
+          width: 70px;
+          height: 70px;
+        }
+    }
+}
+
+// classがフック
+
+.fixed__btn{
+  position: relative;
+  position:fixed;
+  background-color: #E607AA;
+  border-radius: 100px 0 0 100px;
+  width:350px;
+  height: 90px;
+  right:0px;
+  bottom:15px;
+  z-index:999;
+  padding: 15px 0px;
+  animation: animation-haniwaman 0.4s linear 1s 1 normal;
+  animation-fill-mode: forwards;
+  opacity:0;
+  height:72px;
+  @include pc(nb){
+    width:350px;
+  }
+  @include pc(sp){
+    padding: 10px 0px;
+    width:266px;
+    height: 65px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 25px;
+    width: 8px;    
+    height: 8px;   
+    border-top: 3px solid #ffffff;    
+    border-right: 3px solid #ffffff;   
+    transform: rotate(45deg);   
+    @include pc(sp){
+      width: 6px;    
+      height: 6px; 
+      border-top: 2px solid #ffffff;    
+      border-right: 2px solid #ffffff;  
+      right: 13px;
+    }
+}
+  &::before {
+    position: absolute;
+    content: "";
+    background-image: url(../img/fixedbtn-gz.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    top: -5px;
+    left: 20px;
+    @include pc(sp){
+      width: 65px;
+      height: 65px;
+      top: -5px;
+      left: 10px;
+    }
+  }
+ }
+
+@keyframes animation-haniwaman {
+  0% {
+    opacity: 0;
+    transform:translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform:translateX(0px);
+  }
+}
+ 
+.fixed__btn a p{
+  font-size:18px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left:35px;
+  line-height: 1.3;
+  display:inline-block;
+  position: relative;
+  @include pc(sp){
+    font-size:16px;
+    margin-left:40px;
+  }
+  // &::after{
+  //   position: absolute;
+  //   content: '';
+  //   width: 80px;
+  //   height: 80px;
+  //   background: url(../img/fixedbtn-gz.png);
+  //   background-position: center;
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  //   bottom: 48px;
+  //   right: -20px;
+  // }
+}     
+
+
+//   メイン
+
+.section01 {
+    background-color: #FFF9B1;
+    padding: 60px 0;
+    @include pc(sp){
+      padding: 40px 0;
+    }
+    & img {
+        width: 484px;
+        margin: 0 auto 50px;
+        @include pc(sp){
+          width: 300px;
+          margin: 0 auto 30px;
+        }
+    }
+    & h2 {
+      position: relative;
+        color: #00244D;
+        & span {
+            color: #E607AA;
+        }
+        @include pc(sp){
+          margin-bottom: 20px;
+        }
+          &::before {
+            position: absolute;
+            content: "";
+            background-image: url(../img/section01-h2.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 42px;
+            height: 122px;
+            top: 10px;
+            left: 40px;
+            @include pc(tb){
+            left: -10px;
+            }
+            @include pc(sp){
+              width: 32px;
+              height: 75px;
+              top: 30px;
+              left: 0px;
+            }
+          }
+          &::after {
+            transform: scale(-1,1);
+            position: absolute;
+            content: "";
+            background-image: url(../img/section01-h2.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 42px;
+            height: 122px;
+            top: 10px;
+            right: 40px;
+            @include pc(tb){
+            right: -10px;
+            }
+            @include pc(sp){
+              width: 32px;
+              height: 75px;
+              top: 30px;
+              right: 0px;
+            }
+          }
+    }
+    & .flex {
+      justify-content: flex-start;
+      margin: 0 auto;
+      margin-bottom: 60px;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 20px;
+      @include pc(sp){
+        display: block;
+        padding-left: 0px;
+        margin-bottom: 40px;
+      }
+      & img {
+        width: 216px;
+        height: 160px;
+        margin-bottom: 0;
+        @include pc(mb){
+          width: 160px;
+          height: 104px;
+        }
+        @include pc(sp){
+          width: 216px;
+          height: 160px;
+        }
+      }
+      & .arrow {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18.5px 0 18.5px 21px;
+        border-color: transparent transparent transparent #FFD800;
+        margin-top: -55px;
+        @include pc(sp){
+          margin: 10px auto;
+          border-width: 14px 12.5px 0 12.5px;
+          border-color: #FFD800 transparent transparent transparent;
+        }
+      }
+      & .flex-item {
+        p {
+          font-weight: bold;
+          margin-top: 22px;
+          text-align: center;
+          @include pc(sp){
+            margin-top: 10px;
+          }
+          &.first{
+            margin-bottom: 30px;
+            @include pc(sp){
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+    & .title {
+      position: relative;
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 60px;
+      @include pc(sp){
+        margin-top: 40px;
+        font-size: 20px;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        border-bottom : solid 2px #FFD800;
+        width: 310px;
+        top: 45%;
+        left: 0;
+        @include pc(mb){
+          width: 230px;
+        }
+        @include pc(sp){
+          border: solid 1px #FFD800;
+          width: 115px;
+        }
+        @include pc(ssp){
+          width: 100px;
+        }
+        }
+      &::after {
+        position: absolute;
+        content: "";
+        border-bottom : solid 2px #FFD800;
+        width: 310px;
+        top: 45%;
+        right: 0;
+        @include pc(mb){
+          width: 230px;
+        }
+        @include pc(sp){
+          border: solid 1px #FFD800;
+          width: 115px;
+        }
+        @include pc(ssp){
+          width: 100px;
+        }
+        }
+      }
+      .button {
+        @include pc(sp){
+          margin-top: 20px;
+        }
+      }
+      & .present {
+        &::before {
+          position: absolute;
+          content: "";
+          background-image: url(../img/section01-h2.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          width: 42px;
+          height: 122px;
+          top: 10px;
+          left: 40px;
+          @include pc(nb){
+            left: 30px;
+          }
+          @include pc(tb){
+          left: -10px;
+          }
+          @include pc(sp){
+            width: 32px;
+            height: 75px;
+            top: 30px;
+            left: 5px;
+          }
+          @include pc(ssp){
+            left: 0px;
+            }
+        }
+        &::after {
+          transform: scale(-1,1);
+          position: absolute;
+          content: "";
+          background-image: url(../img/section01-h2.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          width: 42px;
+          height: 122px;
+          top: 10px;
+          right: 40px;
+          @include pc(nb){
+            right: 30px;
+          }
+          @include pc(tb){
+          right: -10px;
+          }
+          @include pc(sp){
+            width: 32px;
+            height: 75px;
+            top: 30px;
+            right: 5px;
+          }
+          @include pc(ssp){
+            right: 0px;
+            }
+        }
+      }
+  }
+
+  .padding {
+    @include pc(sp){
+      padding: 60px 0;
+    }
+  }
+
+.section02 {
+    background-image: url(../img/section02.png);
+    background-size: 100% 100%;
+    padding: 100px 0;
+    @include pc(sp){
+      padding: 60px 0;
+    }
+    & h2 {
+        position: relative;
+        color: #00244D;
+        margin-bottom: 80px;
+        @include pc(sp){
+          margin-bottom: 55px;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            background-color: #FFD800;
+            border-bottom: solid 6px #FFD800;
+            width: 70px;
+            border-radius: 5px;
+            bottom: -20px;
+            left: 46.5%;
+            @include pc(sp){
+              border: solid 2px #FFD800;
+              width: 45px;
+              bottom: -15px;
+              left: 43%;
+            } 
+        }
+    }
+    & img {
+        width: 300px;
+        height: 200px;
+        @include pc(sp){
+          width: 200px;
+          height: 133px;
+        }
+    }
+    & .flex {
+      @include pc(sp){
+        display: block;
+      }
+    }
+    & .flex-item {
+        padding: 30px 40px 30px 30px;
+        @include pc(sp){
+          display: block;
+          position: initial;
+          padding: 40px 20px 20px;
+          margin-top: -20px;
+          width: 300px;
+          margin-left: auto;
+        }
+    }
+    & .flex02 {
+        margin: 40px 0;
+        justify-content: right;
+        @include pc(sp){
+          margin: 30px 0;
+          display: block;
+        }
+    }
+    & .orange {
+      font-weight: bold;
+        background: linear-gradient(90deg, #FFD972, #FFAE14);
+    }
+    & .yellow {
+      font-weight: bold;
+        background: linear-gradient(90deg, #FFEF72, #FFD214);
+    }
+    & .green {
+      font-weight: bold;
+        background: linear-gradient(90deg, #E4FF8B, #B3E52B);
+    }
+}
+
+.section03 {
+    padding-top: 0;
+    padding-bottom: 100px;
+    @include pc(sp){
+      padding-bottom: 60px;
+    }
+    h2 {
+        background-color: #00244D;
+        color: #FFF852;
+        padding: 35px;
+        @include pc(sp){
+          padding: 30px;
+          margin-bottom: 40px;
+        }
+    }
+    .box {
+        background-color: #F8F8F8;
+        border: solid 2px #237CE3;
+        border-radius: 11px 11px 0 0;
+        padding-bottom: 60px;
+        margin-bottom: 40px;
+        @include pc(sp){
+          padding-bottom: 30px;
+          margin-bottom: 30px;
+        }
+        & .box-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            padding: 32px;
+            background-color: #237CE3;
+            border-radius: 9px 9px 0 0;
+            margin-bottom: 60px;
+            @include pc(sp){
+              padding: 15px;
+              font-size: 16px;
+              margin-bottom: -10px;
+            }
+            & img {
+                width: 82px;
+                height: 82px;
+                vertical-align: middle;
+                margin: 0 4px 0 0;
+                @include pc(sp){
+                  width: 44px;
+                  height: 44px;
+                }
+            }
+            }
+            & .font40 {
+                font-size: 40px;
+                @include pc(sp){
+                  font-size: 20px;
+                }
+            }
+            & .font55 {
+                font-size: 55px;
+                @include pc(sp){
+                  font-size: 28px;
+                }
+             }
+             & .flex {
+                justify-content: center;
+                align-items: flex-end;
+                margin-top: 10px;
+                @include pc(sp){
+                  margin-top: 5px;
+                }
+            }
+            & img {
+                width: 300px;
+                height: 180px;
+                margin: 30px auto;
+                @include pc(tb){
+                  width: 272px;
+                  height: 167px;
+                }
+                @include pc(sp){
+                  width: 200px;
+                  height: 120px;
+                  margin: 20px auto;
+                }
+            }
+            p {
+                position: relative;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                padding: 9px 17px;
+                background: #237CE3;
+                color: #ffffff;
+                border-radius: 50%;
+                width: 62px;
+                height: 62px;
+                margin: 60px auto 25px;
+                @include pc(sp){
+                  width: 54px;
+                  height: 54px;
+                  font-size: 12px;
+                  line-height: 20px;
+                  margin: 40px auto 20px;
+                  padding: 8px 14px;
+                }
+                & span {
+                    font-size: 26px;
+                    line-height: 20px;
+                    @include pc(sp){
+                      font-size: 20px;
+                      line-height: 20px;
+                    }
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    bottom: -10px;
+                    left: 25px;
+                    border-style: solid;
+                    border-width: 14px 7.5px 0 7.5px;
+                    border-color: #237CE3 transparent transparent transparent;
+                    @include pc(sp){
+                      left: 18px;
+                    }
+                }
+            }
+            & .box-sub-title {
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 30px;
+                @include pc(sp){
+                  font-size: 18px;
+                  margin-bottom: 20px;
+                }
+            }
+            .box02 {
+                max-width: 503px;
+                margin: 0 auto;
+                @include pc(sp){
+                  max-width: 273px;
+                }
+                @include pc(ssp){
+                  max-width: 233px;
+                }
+                & ul li {
+                  font-family: "遊ゴシックRegular";
+                    display: block;
+                    margin: 0 auto;
+                    position: relative;
+                    margin-bottom: 10px;
+                    @include pc(sp){
+                      margin-left: 12px;
+                    }
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        background: #77B4FA;
+                        border-radius: 50%;
+                        width: 12px;
+                        height: 12px;
+                        top: 8px;
+                        margin-left: -20px;
+                        @include pc(sp){
+                          width: 10px;
+                          height: 10px;
+                          margin-left: -16px;
+                        }
+                    }
+                }
+            }
+    }
+    & .arrow01 {
+        background: #FFB100;
+        border-radius: 4px;
+        width: 46px;
+        height: 36px;
+        margin: 0 auto;
+        @include pc(sp){
+          width: 34px;
+          height: 27px;
+        }
+    }
+    & .arrow02 {
+        border-radius: 2px;
+        margin: 0 auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 37px 40.5px 0 40.5px;
+        border-color: #FFB100 transparent transparent transparent;
+        margin-top: -10px;
+        margin-bottom: 10px;
+      @include pc(sp){
+        border-width: 28px 30.5px 0 30.5px;
+        border-color: #FFB100 transparent transparent transparent;
+      }
+    }
+    & .box01 {
+        background: #FFFDD3;
+        border: solid 2px #FFD800;
+        padding: 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        & p {
+        text-align: center;
+        font-size: 30px;
+        @include pc(sp){
+          font-size: 20px;
+        }
+        }
+        & span {
+            color: #E607AA;
+        }
+    }
+}
+
+.section04 {
+    padding: 100px 0;
+    position: relative;
+    background: #FFFDD9;
+    @include pc(sp){
+      padding: 60px 0;
+    }
+    &::before{
+        position: absolute;
+        content: "";
+        border: solid 6px #FFD800;
+        width: 99%;
+        top: 0;
+        left: 0;
+        @include pc(tb){
+          width: 98%;
+        }
+        @include pc(sp){
+          width: 96.8%;
+        }
+        @include pc(ssp){
+          width: 95%;
+        }
+    }
+    & h2 {
+        position: relative;
+        color: #00244D;
+        &::before{
+        position: absolute;
+        content: "";
+        background-image: url(../img/section04-h2.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 33px;
+        height: 90px;
+        top: 10px;
+        left: 180px;
+        @include pc(tb){
+          left: 110px;
+        }
+        @include pc(sp){
+          top: 0px;
+          width: 23px;
+          height: 55px;
+          left: 40px;
+        }
+      }
+        &::after {
+        transform: scale(-1,1);
+        position: absolute;
+        content: "";
+        background-image: url(../img/section04-h2.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 33px;
+        height: 90px;
+        top: 10px;
+        right: 180px;
+        @include pc(tb){
+         right: 110px;
+        }
+        @include pc(sp){
+          top: 0px;
+          width: 23px;
+          height: 55px;
+          right: 40px;
+        }
+      }
+    }
+    & .part {
+        height: 75px;
+        width: 52px;
+        margin: 0 auto;
+        @include pc(sp){
+          height: 56px;
+          width: 35px;
+        }
+    }
+    & .marker {
+        color: #00244D;
+        font-weight: bold;
+        font-size: 26px;
+        text-align: center;
+        margin: 10px auto 60px;
+        @include pc(tb){
+          font-size: 18px;
+          margin: 10px auto 40px;
+        }
+        & span {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, transparent), color-stop(65%, #F9EF99));
+        background: linear-gradient(transparent 65%, #F9EF99 65%);
+        }
+    }
+    & .flex {
+      @include pc(sp){
+        display: block;
+      }
+    }
+    & .flex-item {
+        display: flex;
+        margin-bottom: 40px;
+        gap: 60px;
+        @include pc(sp){
+          display: block;
+          margin-bottom: 40px;
+        }
+        & img {
+            width: 240px;
+            height: 150px;
+            @include pc(sp){
+              margin: 0 auto 20px;
+            }
+        }
+        & .title {
+            position: relative;
+            font-size: 22px;
+            color: #00244D;
+            margin-bottom: 10px;
+            @include pc(sp){
+              margin-left: 35px;
+              font-size: 18px;
+              margin-bottom: 12px;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                background-image: url(../img/check.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                width: 35px;
+                height: 30px;
+                top:0;
+                left: 0;
+                margin-left: -40px;
+                @include pc(sp){
+                  margin-left: -32px;
+                  top: 3px;
+                  width: 28px;
+                  height: 23px;
+                }
+            }
+        }
+        .text {
+          font-family: "遊ゴシックRegular";
+            margin-left: -40px;
+            @include pc(sp){
+              margin-left: 0px;
+            }
+        }
+    }
+    & .box {
+        background: #FFFCCB;
+        border: solid 2px #FFD800;
+        border-radius: 10px;
+        padding: 60px;
+        margin-top: 60px;
+        @include pc(sp){
+          padding: 40px 20px;
+        }  
+        & .box-title {
+          position: relative;
+            font-size: 30px;
+            margin-bottom: 60px;
+            font-weight: bold;
+            color: #00244D;
+            text-align: center;
+            @include pc(sp){
+              font-size: 20px;    
+              margin-bottom: 30px;
+            } 
+            &::before {
+              position: absolute;
+              content: "";
+              background-image: url(../img/box-h2.png);
+              background-size: 100%;
+              background-repeat: no-repeat;
+              width: 20px;
+              height: 54px;
+              top:0;
+              left: 200px;
+              @include pc(nb){
+                left: 180px; 
+              }
+              @include pc(tb){
+                left: 80px;
+              }
+              @include pc(sp){
+                width: 17px;
+                height: 36px;
+                left: 10px; 
+              }
+              @include pc(ssp){
+                left: 0px; 
+              }
+            }
+            &::after {
+              transform: scale(-1,1);
+              position: absolute;
+              content: "";
+              background-image: url(../img/box-h2.png);
+              background-size: 100%;
+              background-repeat: no-repeat;
+              width: 20px;
+              height: 54px;
+              top:0;
+              right: 200px;
+              @include pc(nb){
+                right: 180px;
+              }
+              @include pc(tb){
+                right: 80px;
+              }
+              @include pc(sp){
+                width: 17px;
+                height: 36px;
+                right: 10px; 
+              }
+              @include pc(ssp){
+                right: 0px; 
+              }
+            }
+        }
+        & img {
+            width: 300px;
+            height: 300px;
+            @include pc(mb){
+              margin: auto;
+             }
+            @include pc(sp){
+              width: 200px;
+              height: 200px;
+             }
+        }
+        & .box-text {
+            display: flex;
+            gap: 40px;
+            @include pc(mb){
+             flex-wrap: wrap;
+            }
+            @include pc(sp){
+              gap: 20px;
+            }
+            & .name {
+              font-weight: bold;
+                position: relative;
+                font-size: 22px;
+                margin-bottom: 30px;
+                margin-left: 10px;
+                @include pc(sp){
+                  font-size: 18px;
+                  margin-bottom: 27px;
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 8px;
+                    height: 22px;
+                    top: 5px;
+                    left: -16px;
+                    background: #FFD800;
+                    @include pc(sp){
+                      height: 20px;
+                      left: -13px;
+                      top: 4px;
+                    }
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    border-bottom: solid 0.2px #E5E3AD;
+                    width: 100%;
+                    bottom: -15px;
+                    left: -20px;
+                    @include pc(sp){
+                      left: -10px;
+                      bottom: -13px;
+                    }
+                }
+            }
+            & .log {
+                margin-left: -10px;
+                font-family: "遊ゴシックRegular";
+                @include pc(sp){
+                  margin-left: 0px;
+                }
+            }
+        }
+    }
+}
+
+.section05 {
+    padding-bottom: 160px;
+    background: linear-gradient(#333333,#2F4357);
+    h2 {
+        color: #ffffff;
+    }
+}
+
+.section06 {
+    background-image: url(../img/section06.png);
+    background-size: 100% 100%;
+    @include pc(sp){
+      background-image: url(../img/spsection06.png);
+    }
+    & h2 {
+        top: -170px;
+        position: relative;
+        background: #000000;
+        box-shadow: 0 6px 10px rgba(25, 25, 25,0.29);
+        padding: 20px;
+        width: 768px;
+        color: #ffffff;
+        margin: 0 auto;
+        @include pc(sp){
+          top: -140px;
+          width: 276px;
+          padding: 8px 17px 20px;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            left: 48%;
+            bottom: -16%;
+            border-style: solid;
+            border-width: 28px 19px 0 19px;
+            border-color: #000000 transparent transparent transparent;
+            @include pc(sp){
+              border-width: 17px 14px 0 14px;
+              border-color: #000000 transparent transparent transparent;
+              left: 45%;
+              bottom: -10%;
+            }
+        }
+        & .font40 {
+            font-size: 40px;
+            color: #62BDFF;
+            @include pc(sp){
+              font-size: 30px;
+            }
+        }
+        & .blue {
+            color: #62BDFF;
+        }
+        & .yellow {
+            color: #FFD800;
+        }
+    }
+    & .sub-title {
+        font-weight: bold;
+        margin: 0 auto;
+        width: 340px;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+        margin-top: -110px;
+        border: solid 1px #727272;
+        padding: 10px 30px;
+        @include pc(sp){
+          width: 255px;
+          margin-top: -90px;
+          font-size: 14px;
+          line-height: 18px;
+          padding: 10px 20px;
+        }
+    }
+    & img {
+        width: 260px;
+        height: 270px;
+        margin: 20px auto;
+        @include pc(sp){
+          width: 180px;
+          height: 185px;
+          margin: 10px auto;
+        }
+    }
+    & .font12 {
+        font-family: "遊ゴシックRegular";
+        font-size: 12px;
+        text-align: center;
+    }
+    h3 {
+        font-size: 26px;
+        background-color: #C5D2E3;
+        border-radius: 66px;
+        margin: 80px auto 60px;
+        padding: 20px;
+        @include pc(sp){
+          font-size: 18px;
+          margin: 60px auto 30px;
+        }
+        & span {
+            color: #001E9B;
+        }
+        & .small {
+            font-size: 18px;
+            color: #00244D;
+            @include pc(sp){
+              font-size: 14px;
+            }
+        }
+    }
+    .flex {
+       justify-content:space-around;
+       align-items: center;
+       @include pc(tb){
+        margin: 0 auto;
+        width: 500px;
+        flex-wrap: wrap;
+        }
+        @include pc(sp){
+          width: 300px;
+        }
+       & .flex-item {
+        align-items: center;
+        @include pc(tb){
+          margin-bottom: 60px;
+        }
+        @include pc(sp){
+          margin-bottom: 50px;
+        }
+        & img {
+          width: 287px;
+          height: 162px;
+          margin: 0 auto;
+          @include pc(sp){
+            width: 200px;
+            height: 112px;
+          }
+         }
+        & p{
+            position: relative;
+            text-align: center;
+            font-size: 18px;
+            line-height: 27px;
+            font-weight: bold;
+            z-index: 2;
+            & span {
+                color: #001E9B;
+            }
+            @include pc(sp){
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+          & .negative {
+              width: 100px;
+              height: 100px;
+              margin-top: -90px;
+              margin-bottom: 20px;
+              z-index: -1;
+              @include pc(sp){
+                margin-top: -80px;
+                margin-bottom: 10px;
+              }
+          }
+          & .negative02 {
+            position: relative;
+            margin-bottom: 40px;
+            &::after {
+              position: absolute;
+              content: "";
+              background-image: url(../img/negativ.png);
+              background-size: 100%;
+              width: 100px;
+              height: 100px;
+              top: -20px;
+              left: 90px;
+              z-index: -1;
+              @include pc(nb){
+                top: -17px;
+                left: 92px;
+              }
+              @include pc(sp){
+                top: -30px;
+                left: 92px;
+              }
+            }
+          }
+       }
+    }
+    & .negativ {
+        width: 680px;
+        height: 340px;
+        margin-top: 40px;
+        @include pc(sp){
+          margin-top: 30px;
+          width: 345px;
+          height: 200px;
+          margin-bottom: 0;
+        }
+        @include pc(ssp){
+          width: 325px;
+          height: 180px;
+        }
+    }
+    & .box {
+      background-color: #ffffff;
+      padding: 50px;
+      margin: 100px auto 0;
+      border: solid 4px #DBDBDB;
+      @include pc(sp){
+        border: solid 3px #DBDBDB;
+        padding: 30px 20px;
+        margin: 60px auto 0;
+      }
+      @include pc(ssp){
+        padding: 30px 15px;
+      }
+    }
+    & .flex02 {
+      gap: 50px;
+      margin: 40px 0;
+      @include pc(sp){
+       display: block;
+       margin: 20px 0;
+      }
+      & ul li {
+        font-size: 18px;
+        position: relative;
+        margin-left: 40px;
+        width: fit-content;
+        margin-bottom: 26px;
+        @include pc(sp){
+          font-size: 16px;
+          margin: 20px 40px;
+         }
+        @include pc(ssp){
+          margin: 20px 20px 20px 40px;
+         }
+        &::before {
+            background-image: url(../img/list.png);
+            background-size: 100%;
+            position: absolute;
+            content: "";
+            width: 29px;
+            height: 25px;
+            margin-left: -40px;
+        }
+       }
+       & .not {
+        width: 260px;
+        height: 178px;
+        margin: 0;
+        @include pc(sp){
+          width: 200px;
+          height: 136px;
+          margin: 0 auto 30px;
+         }
+      }
+    }
+    p {
+     font-family: "遊ゴシックRegular";;
+    }
+}
+
+.section07 {
+  padding-bottom: 345px;
+  background-image: url(../img/section07.png);
+  background-size: cover;
+  @include pc(mb){
+    padding-bottom: 60px;
+  }
+  & h2 {
+    position: relative;
+    color: #00244D;
+    margin-bottom: 80px;
+    @include pc(sp){
+      margin-bottom: 55px;
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: #FFD800;
+        border-bottom: solid 6px #FFD800;
+        width: 70px;
+        border-radius: 5px;
+        bottom: -20px;
+        left: 47%;
+        @include pc(sp){
+          border: solid 2px #FFD800;
+          left: 44%;
+          width: 45px;
+          bottom: -15px;
+        }
+    }
+  }
+  & img {
+    width: 700px;
+    height: 311px;
+    margin: 0 auto 80px;
+    @include pc(tb){
+      width: 573px;
+      height: 255px;
+    }
+    @include pc(sp){
+      width: 345px;
+      height: 153px;
+      margin: 0 auto 60px;
+    }
+    @include pc(ssp){
+      width: 305px;
+      height: 113px;
+      margin: 0 auto 60px;
+    }
+  }
+  & .flex01 {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    @include pc(mb){
+      display: block;
+    }
+    & img {
+      width: 350px;
+      height: 225px;
+      z-index: 1;
+      margin: 0;
+      @include pc(mb){
+        margin: 0 auto;
+      }
+      @include pc(sp){
+        width: 260px;
+        height: 167px;
+      }
+    }
+    & .flex-item {
+      font-family: "遊ゴシックRegular";
+      position: absolute;
+      background: #FFE18E;
+      padding: 40px 50px;
+      padding-left: 90px;
+      left: 290px;
+      top: 20px;
+      z-index: 0;
+      @include pc(mb){
+        display: block;
+        position: initial;
+        padding: 40px 20px 20px;
+        margin-top: -20px;
+      }
+      @include pc(sp){
+        font-size: 15px;
+      }
+      & .title {
+        font-family: "遊ゴシックbold";
+        color: #984C00;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 28px;
+        margin-bottom: 20px;
+        @include pc(sp){
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  & .flex02 {
+    margin-top: 210px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    @include pc(mb){
+      margin-top: 30px;
+      display: block;
+    }
+    & img {
+      width: 350px;
+      height: 225px;
+      margin: 0;
+      z-index: 1;
+      @include pc(mb){
+        margin: 0 auto;
+      }
+      @include pc(sp){
+        width: 260px;
+        height: 167px;
+      }
+    }
+    & .flex-item {
+      font-family: "遊ゴシックRegular";
+      position: absolute;
+      background: #FFF79A;
+      padding: 40px 50px;
+      padding-left: 90px;
+      left: 290px;
+      top: 20px;
+      z-index: 0;
+      @include pc(mb){
+        display: block;
+        position: initial;
+        padding: 40px 20px 20px;
+        margin-top: -20px;
+      }
+      @include pc(sp){
+        font-size: 15px;
+      }
+      & .title {
+        color: #906900;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 28px;
+        margin-bottom: 20px;
+        @include pc(sp){
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  & .flex03 {
+    margin-top: 230px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    @include pc(mb){
+      margin-top: 30px;
+      display: block;
+    }
+    & img {
+      width: 350px;
+      height: 225px;
+      margin: 0;
+      z-index: 1;
+      @include pc(mb){
+        margin: 0 auto;
+      }
+      @include pc(sp){
+        width: 260px;
+        height: 167px;
+      }
+    }
+    & .flex-item {
+      font-family: "遊ゴシックRegular";
+    position: absolute;
+    background: #DBFFB2;
+    padding: 40px 50px;
+    left: 290px;
+    top: 20px;
+    padding-left: 90px;
+    z-index: 0;
+    @include pc(mb){
+      display: block;
+      position: initial;
+      padding: 40px 20px 20px;
+      margin-top: -20px;
+    }
+    @include pc(sp){
+      font-size: 15px;
+    }
+    & .title {
+      color: #375F23;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 28px;
+      margin-bottom: 20px;
+      @include pc(sp){
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 15px;
+      }
+    }
+    }
+  }
+}
+
+.section08 {
+  background-image: url(../img/section08.png);
+  background-size: 100% 100%;
+  & img {
+    width: 141px;
+    height: 141px;
+    margin: 0 auto 60px;
+    @include pc(sp){
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 40px;
+    }
+  }
+
+  // アコーディオン
+
+.aco{
+  &-block{
+    margin-bottom: 30px;
+  }
+  &-last{
+    margin-bottom: 0;
+  }
+  &-content{
+    display: flex;
+    align-items: center;
+    &-left{
+      margin-right: 15px;
+      @include pc(sp){
+        margin-right: 10px;
+      }
+      p{
+        font-size: 40px;
+        line-height: 1;
+      }
+    }
+  }
+  .q{
+    background-color: #5EA800;
+    padding: 24px;
+    border-radius: 10px;
+    color: #ffffff;
+    position: relative;
+    @include pc(sp){
+      padding: 20px 25px;
+    }
+    &::before{
+      position: absolute;
+      content: "";
+      margin: auto;
+      bottom: 0;
+      width: 13px;    
+      height: 13px; 
+      border-top: 3px solid #fff;    
+      border-right: 3px solid #fff;  
+      transform: rotate(135deg);  
+      top: 0;
+      right: 30px;
+      transition: all .5s;
+      @include pc(sp){
+        border-top: 2px solid #fff;    
+        border-right: 2px solid #fff;  
+        width: 8px;    
+        height: 8px; 
+        right: 18px;
+      }
+    }
+    &:hover{
+      cursor: pointer;
+    }
+    .aco-content-right{
+      p{
+        font-size: 22px;
+        font-weight: bold;
+        @include pc(sp){
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .close{
+    &::before{
+      content: "";
+      margin: auto;
+      bottom: 0;
+      width: 13px;    
+      height: 13px; 
+      border-top: 3px solid #fff;    
+      border-right: 3px solid #fff;  
+      transform: rotate(-43deg);  
+      top: 10px;
+      right: 30px;
+      transition: all .7s;
+      @include pc(sp){
+        border-top: 2px solid #fff;    
+        border-right: 2px solid #fff;  
+        width: 8px;    
+        height: 8px; 
+        right: 18px;
+      }
+    }
+  }
+  .a{
+    border: 1px solid #5EA800;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 35px 40px;
+    color: #000000;
+    @include pc(sp){
+      padding: 20px;
+    }
+    .aco-content-right {
+      p{
+        font-size: 18px;
+        font-family: "遊ゴシックRegular";
+        @include pc(sp){
+          font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+  .qa-last {
+    margin-bottom: 0;
+  }
+}
+
+.section09 {
+  background-image: url(../img/section09.png);
+  background-size: 100% 100%;
+  @include pc(sp){
+    background-image: url(../img/spsection09.png);
+  }
+  & h2 {
+    color: #00244D;
+    margin-bottom: 100px;
+    @include pc(sp){
+      margin-bottom: 60px;
+    }
+    & .shadow01 {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
+      width: 100%;
+      &::before {
+      position: absolute;
+      content: "留学前に";
+      color: #ffffff;
+      -webkit-text-stroke: 5px #FFF;
+      background-size: contain;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+      z-index: -1;
+      @include pc(sp){
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+      }
+      }
+    }
+    & .shadow02 {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
+      width: 100%;
+      &::before {
+      position: absolute;
+      content: "不安を解消しておきませんか？";
+      color: #ffffff;
+      -webkit-text-stroke: 5px #FFF;
+      background-size: contain;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+      z-index: -1;
+      @include pc(sp){
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+      }
+      }
+    }
+  }
+  & .flex {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include pc(sp) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: block;
+    }
+    & .flex-item {
+      @include pc(sp) {
+        margin-bottom: 30px;
+      }
+      & img {
+        width: 216px;
+        height: 216px;
+        margin: 0;
+        margin-bottom: 20px;
+        @include pc(tb) {
+          margin: 0 auto 20px;
+          width: 150px;
+          height: 150px;
+        }
+        @include pc(sp) {
+          margin: 0 auto 10px;
+          width: 160px;
+          height: 160px;
+        }
+      }
+      p {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 26px;
+        text-align: center;
+        color: #00244D;
+        @include pc(sp){
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  p {
+    font-family: "遊ゴシックRegular";
+  }
+}
+
+.section10 {
+  padding-top: 0;
+  background-color: #FFF9B1;
+  padding-bottom: 100px;
+  @include pc(sp){
+    padding-bottom: 80px;
+  }
+  & img {
+    width: 484px;
+    margin: 0 auto 30px;
+    @include pc(sp){
+      width: 300px;
+    }
+  }
+  & .main {
+    background: #FFD800;
+    padding: 30px;
+    margin-bottom: 60px;
+    @include pc(sp){
+      padding: 20px;
+      line-height: 33px;
+    }
+    & .font50 {
+      font-size: 50px;
+      @include pc(sp){
+        font-size: 30px;
+      }
+    }
+    & .pink {
+      color: #E607AA;
+    }
+  }
+  & .sub {
+    position: relative;
+      color: #00244D;
+      margin-bottom: 30px;
+      & span {
+          color: #E607AA;
+      }
+       &::before {
+          position: absolute;
+          content: "";
+          background-image: url(../img/section01-h2.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          width: 42px;
+          height: 122px;
+          top: 10px;
+          left: 40px;
+          @include pc(nb){
+            left: 30px;
+          }
+          @include pc(tb){
+          left: -10px;
+          }
+          @include pc(sp){
+            width: 32px;
+            height: 75px;
+            top: 30px;
+            left: 5px;
+          }
+          @include pc(ssp){
+            left: 0px;
+            }
+        }
+        &::after {
+          transform: scale(-1,1);
+          position: absolute;
+          content: "";
+          background-image: url(../img/section01-h2.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          width: 42px;
+          height: 122px;
+          top: 10px;
+          right: 40px;
+          @include pc(nb){
+            right: 30px;
+          }
+          @include pc(tb){
+          right: -10px;
+          }
+          @include pc(sp){
+            width: 32px;
+            height: 75px;
+            top: 30px;
+            right: 5px;
+          }
+          @include pc(ssp){
+            right: 0px;
+            }
+        }
+  }
+  background-color: #FFF9B1;
+  & .flex {
+    justify-content: flex-start;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    @include pc(sp){
+      display: block;
+      padding-left: 0px;
+      margin-bottom: 40px;
+    }
+    & img {
+      width: 216px;
+      height: 160px;
+      margin-bottom: 0;
+      @include pc(mb){
+        width: 160px;
+        height: 104px;
+      }
+      @include pc(sp){
+        width: 216px;
+        height: 160px;
+      }
+    }
+    & .arrow {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 18.5px 0 18.5px 21px;
+      border-color: transparent transparent transparent #FFD800;
+      margin-top: -55px;
+      @include pc(sp){
+        margin: 10px auto;
+        border-width: 14px 12.5px 0 12.5px;
+        border-color: #FFD800 transparent transparent transparent;
+      }
+    }
+    & .flex-item {
+      p {
+        font-weight: bold;
+        margin-top: 22px;
+        text-align: center;
+        @include pc(sp){
+          margin-top: 10px;
+        }
+        &.first{
+          margin-bottom: 30px;
+          @include pc(sp){
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+  & .title {
+      position: relative;
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 60px;
+      @include pc(sp){
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        border-bottom: solid 2px #FFD800;
+        width: 310px;
+        top: 45%;
+        left: 0;
+        @include pc(mb){
+          width: 230px;
+        }
+        @include pc(sp){
+          border: solid 1px #FFD800;
+          width: 115px;
+        }
+        @include pc(ssp){
+          width: 100px;
+        }
+        }
+      &::after {
+        position: absolute;
+        content: "";
+        border-bottom: solid 2px #FFD800;
+        width: 310px;
+        top: 45%;
+        right: 0;
+        @include pc(mb){
+          width: 230px;
+        }
+        @include pc(sp){
+          border: solid 1px #FFD800;
+          width: 115px;
+        }
+        @include pc(ssp){
+          width: 100px;
+        }
+        }
+      }
+      // .button {
+      //   @include pc(sp){
+      //     margin-top: 40px;
+      //   }
+      // }
+}
+
+
+// 追加CSS
+
+.text-ballon{
+  background: #ffbe27;
+  margin: 0 auto 20px;
+  width: 60%;
+  padding: 20px 0;
+  position: relative;
+  border-radius: 20px;
+  line-height: 1.3;
+  @include pc(sp){
+    width: 80%;
+    padding: 15px 0;
+  }
+  &::after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 7.5px 0 7.5px;
+    border-color: #ffbe27 transparent transparent transparent;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    @include pc(sp){
+      font-size: 18px;
+    }
+  }
+}

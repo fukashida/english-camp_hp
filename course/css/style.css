@@ -1,0 +1,423 @@
+@charset "UTF-8";
+/* デフォルト */
+@font-face {
+  font-family: "YuGothic";
+  src: url(../../font/YuGothM.ttc);
+}
+@font-face {
+  font-family: "YuGothicB";
+  src: url(../../font/YuGothB.ttc);
+}
+/* レスポンシブ設定 */
+@media screen and (min-width: 541px) {
+  .sp {
+    display: none;
+  }
+}
+@media screen and (max-width: 540px) {
+  .pc {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  .tb {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nb {
+    display: none;
+  }
+}
+/* リセットCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width:540px) {
+  .master img {
+    margin-bottom: 20px;
+  }
+  .master img:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.c-detail .title {
+  padding: 20px 0;
+  background: #299AB5;
+}
+.c-detail .title p {
+  text-align: center;
+  color: white;
+  font-family: "YuGothicB";
+}
+.c-detail .title.ye {
+  background: #E0BE2E;
+}
+.c-detail .title.or {
+  background: #CC6C3E;
+}
+.c-detail .box {
+  margin-bottom: 35px;
+  padding: 25px;
+  background: #DEEFF0;
+}
+.c-detail .box.last {
+  margin-bottom: 0px;
+}
+.c-detail .box .flex {
+  justify-content: center;
+  gap: 25px;
+  align-items: flex-start;
+}
+@media screen and (max-width:540px) {
+  .c-detail .box .flex {
+    display: block;
+  }
+}
+.c-detail .box .flex.mb {
+  margin-bottom: 25px;
+}
+.c-detail .box .flex img {
+  width: 320px;
+}
+@media screen and (max-width:540px) {
+  .c-detail .box .flex img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+.c-detail .box .flex .text h3 {
+  font-size: 20px;
+  color: #2D9BB5;
+  margin-bottom: 15px;
+  font-family: "YuGothicB";
+  text-align: justify;
+  line-height: 1;
+}
+@media screen and (max-width:540px) {
+  .c-detail .box .flex .text h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+.c-detail .box.ye {
+  background: #F8F6DF;
+}
+.c-detail .box.ye .flex .text h3 {
+  color: #DDAA00;
+}
+.c-detail .box.or {
+  background: #F4EAE6;
+}
+.c-detail .box.or .flex .text h3 {
+  color: #D56832;
+}
+
+.lesson .flex {
+  gap: 21px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex {
+    gap: 10px;
+  }
+}
+@media screen and (max-width:540px) {
+  .lesson .flex {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+}
+.lesson .flex .class {
+  width: 305px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class {
+    width: 223px;
+  }
+}
+@media screen and (max-width:540px) {
+  .lesson .flex .class {
+    width: 100%;
+  }
+}
+.lesson .flex .class .title {
+  background: #A7B446;
+  border-radius: 7px 7px 0 0;
+  padding: 20px 23px;
+  height: 180px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .title {
+    height: 160px;
+  }
+}
+@media screen and (max-width:540px) {
+  .lesson .flex .class .title {
+    height: auto;
+  }
+}
+.lesson .flex .class .title p {
+  color: white;
+  font-size: 16px;
+  font-family: "YuGothicB";
+  border-bottom: 1px dashed white;
+  margin-bottom: 15px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .title p {
+    font-size: 16px;
+    padding-bottom: 3px;
+  }
+}
+.lesson .flex .class .title p span {
+  font-size: 22px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .title p span {
+    font-size: 20px;
+  }
+}
+.lesson .flex .class .title ul li {
+  padding-left: 20px;
+  text-align: justify;
+  color: white;
+  margin-bottom: 5px;
+  list-style: none;
+  position: relative;
+  font-size: 20px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .title ul li {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:540px) {
+  .lesson .flex .class .title ul li {
+    font-size: 16px;
+  }
+}
+.lesson .flex .class .title ul li:last-child {
+  margin-bottom: 0px;
+}
+.lesson .flex .class .title ul li::before {
+  position: absolute;
+  content: "";
+  width: 8.5px;
+  height: 8.5px;
+  background: #DADDB2;
+  top: 9px;
+  transform: rotate(-45deg);
+  left: 4px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .title ul li::before {
+    top: 6px;
+  }
+}
+.lesson .flex .class .text {
+  border-left: 2px solid #A7B446;
+  border-right: 2px solid #A7B446;
+  border-bottom: 2px solid #A7B446;
+  border-radius: 0 0 7px 7px;
+  padding: 25px 23px;
+  height: 392px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .text {
+    height: 335px;
+  }
+}
+@media screen and (max-width:540px) {
+  .lesson .flex .class .text {
+    height: auto;
+  }
+}
+.lesson .flex .class .text img {
+  margin-bottom: 20px;
+}
+@media screen and (max-width:768px) {
+  .lesson .flex .class .text p {
+    font-size: 14px;
+  }
+}
+.lesson .flex .class.bclass .title {
+  background: #3989BC;
+}
+.lesson .flex .class.bclass .title ul li::before {
+  background: #BCD3E2;
+}
+.lesson .flex .class.bclass .text {
+  border-left: 2px solid #3989BC;
+  border-right: 2px solid #3989BC;
+  border-bottom: 2px solid #3989BC;
+}
+.lesson .flex .class.aclass .title {
+  background: #A84057;
+}
+.lesson .flex .class.aclass .title ul li::before {
+  background: #E5AFB6;
+}
+.lesson .flex .class.aclass .text {
+  border-left: 2px solid #A84057;
+  border-right: 2px solid #A84057;
+  border-bottom: 2px solid #A84057;
+}
+
+.base img {
+  width: 500px;
+  margin: 0 auto 35px;
+}
+@media screen and (max-width:540px) {
+  .base img {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+}
+.base p.sub-title {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-family: "YuGothicB";
+  color: #2F90D8;
+}
+@media screen and (max-width:540px) {
+  .base p.sub-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+.base p.ano {
+  text-align: left;
+  font-size: 16px;
+  margin-top: 25px;
+}
+@media screen and (max-width:540px) {
+  .base p.ano {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+}
+.base a.button {
+  margin-top: 60px;
+}
+@media screen and (max-width:540px) {
+  .base a.button {
+    margin-top: 35px;
+  }
+}
+
+@media screen and (max-width:540px) {
+  .price h2 {
+    margin-bottom: 32px;
+  }
+}
+.price table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.price table tr {
+  font-size: 18px;
+  border: 2px solid white;
+}
+@media screen and (max-width:540px) {
+  .price table tr {
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+  }
+}
+.price table tr th {
+  width: 172px;
+  background: #E5ECF6;
+  padding: 25px 0;
+  border: 2px solid white;
+  text-align: center;
+}
+@media screen and (max-width:540px) {
+  .price table tr th {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 16px;
+    border: none;
+    border-top: 3px solid white;
+  }
+}
+.price table tr td {
+  background: #F5F5F5;
+  padding: 20px 0;
+  padding-left: 45px;
+  border: 2px solid white;
+  font-size: 25px;
+  font-family: "YuGothicB";
+  color: #003986;
+  line-height: 1em;
+}
+@media screen and (max-width:540px) {
+  .price table tr td {
+    border: none;
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 22px;
+  }
+}
+.price table tr td span {
+  font-size: 16px;
+  color: #374D65;
+}
+@media screen and (max-width:540px) {
+  .price table tr td span {
+    font-size: 14px;
+  }
+}
+.price table tr td ul {
+  padding: 10px 0;
+}
+@media screen and (max-width:540px) {
+  .price table tr td ul {
+    padding: 0;
+  }
+}
+.price table tr td ul li {
+  margin-bottom: 15px;
+  padding-left: 14px;
+  text-align: justify;
+  list-style: none;
+  color: #003986;
+  font-family: "YuGothicB";
+  font-size: 18px;
+  position: relative;
+}
+@media screen and (max-width:540px) {
+  .price table tr td ul li {
+    padding-left: 45px;
+    font-size: 16px;
+  }
+}
+.price table tr td ul li::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #A2B8D5;
+  top: 41%;
+  transform: rotate(-45deg) translateY(-50%);
+  left: 0px;
+}
+@media screen and (max-width:540px) {
+  .price table tr td ul li::before {
+    left: 28px;
+  }
+}
+.price table tr td ul li:last-child {
+  margin-bottom: 0px;
+}
+.price table tr td ul li span {
+  font-size: 15px;
+  color: #374D65;
+}/*# sourceMappingURL=style.css.map */
